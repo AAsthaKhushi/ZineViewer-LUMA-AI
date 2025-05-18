@@ -63,7 +63,7 @@ const BackButton: React.FC<BackButtonProps> = ({
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <style jsx>{`
+        <style >{`
           .button-rainbow:before {
             content: "";
             background: linear-gradient(
