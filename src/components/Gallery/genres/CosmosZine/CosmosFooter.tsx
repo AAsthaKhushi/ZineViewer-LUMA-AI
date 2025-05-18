@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
 
 const CosmosFooter = () => {
-  const [showConstellation, setShowConstellation] = useState(false);
+  // const [showConstellation, setShowConstellation] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    const timer = setTimeout(() => setShowConstellation(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setShowConstellation(true), 500);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const shimmerKeyframes = `
     @keyframes cosmicShimmer {
