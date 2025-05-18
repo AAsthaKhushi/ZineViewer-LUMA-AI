@@ -1,7 +1,6 @@
 // Animation properties generation for Framer Motion in FantasyZine
 
-import { Variant } from 'framer-motion';
-import { FantasyAnimationConfig } from './types';
+
 
 // Function to generate animation properties for a single orb
 export const getOrbAnimationProps = (containerSize: { width: number; height: number }) => ({

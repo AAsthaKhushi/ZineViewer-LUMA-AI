@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef, FC, useLayoutEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef, FC, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Styles.module.css';
 import BackButton from '../../../ui/BackButton';
@@ -26,7 +25,6 @@ function getWarpedClipPath(index: number): string {
 }
 
 const HorrorZine: FC<HorrorZineProps> = ({ onNavigate }) => {
-  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
@@ -38,9 +36,7 @@ const HorrorZine: FC<HorrorZineProps> = ({ onNavigate }) => {
   // Interactive state variables
   const [quizAnswer, setQuizAnswer] = useState<string | null>(null);
   const [showReflection, setShowReflection] = useState(false);
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [playingVideo, setPlayingVideo] = useState(false);
-  const [mirrorHover, setMirrorHover] = useState(false);
 
   // Collapsible sections state
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({

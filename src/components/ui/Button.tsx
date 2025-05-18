@@ -14,6 +14,8 @@ const Button = ({
   className = '',
   ...props
 }: ButtonProps) => {
+  // Filter out onAnimationStart, onDragStart, onDragEnd, and onDrag to avoid framer-motion type errors
+  const { onAnimationStart, onDragStart, onDragEnd, onDrag, ...restProps } = props;
   // Base styles
   let buttonClasses = 'font-medium transition-all duration-300 '
   
@@ -41,9 +43,9 @@ const Button = ({
         className={buttonClasses}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.98 }}
-        {...props}
+        {...restProps}
       >
-        <style jsx>{`
+        <style>{`
           .button-85:before {
             content: "";
             background: linear-gradient(
@@ -106,7 +108,7 @@ const Button = ({
       className={buttonClasses}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
-      {...props}
+      {...restProps}
     >
       {children}
     </motion.button>

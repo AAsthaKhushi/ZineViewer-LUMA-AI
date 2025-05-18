@@ -41,10 +41,14 @@ const ParticleCanvas = ({
       size: number
       speedX: number
       speedY: number
+      width: number
+      height: number
       
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+      constructor(width: number, height: number) {
+        this.width = width
+        this.height = height
+        this.x = Math.random() * width
+        this.y = Math.random() * height
         this.size = Math.random() * 3 + 1
         this.speedX = (Math.random() - 0.5) * speed
         this.speedY = (Math.random() - 0.5) * speed
@@ -55,11 +59,11 @@ const ParticleCanvas = ({
         this.y += this.speedY
         
         // Wrap around edges
-        if (this.x > canvas.width) this.x = 0
-        else if (this.x < 0) this.x = canvas.width
+        if (this.x > this.width) this.x = 0
+        else if (this.x < 0) this.x = this.width
         
-        if (this.y > canvas.height) this.y = 0
-        else if (this.y < 0) this.y = canvas.height
+        if (this.y > this.height) this.y = 0
+        else if (this.y < 0) this.y = this.height
       }
       
       draw() {
@@ -74,7 +78,7 @@ const ParticleCanvas = ({
     // Create particles
     const particles: Particle[] = []
     for (let i = 0; i < count; i++) {
-      particles.push(new Particle())
+      particles.push(new Particle(canvas.width, canvas.height))
     }
     
     // Animation function

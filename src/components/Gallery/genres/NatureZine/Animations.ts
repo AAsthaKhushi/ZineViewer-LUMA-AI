@@ -5,10 +5,6 @@ interface PageTransition {
   easing: string;
 }
 
-interface Position {
-  x: number;
-  y: number;
-}
 
 const LEAF_TYPES = [
   'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a0e6c1"><path d="M17,8C8,10,5.9,16.17,3.82,21.34l1.89.66l.95-2.3c.48.28.98.53,1.5.76L9,22.34l.75-1.83c.53.17,1.07.31,1.62.42L13,21.5l.63-1.5c.56.1,1.13.17,1.7.2L17,20.5V8Z"/></svg>',

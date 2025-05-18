@@ -99,10 +99,7 @@ export const runOceanAnimations = (container: HTMLElement, config?: Partial<Ocea
     ...config
   };
   
-  const waves: HTMLElement[] = [];
-  const bubbles: HTMLElement[] = [];
   const depthParticles: HTMLElement[] = [];
-  let currentElement: HTMLElement | null = null;
 
   // Create wave elements
   const createWaves = () => {
@@ -200,14 +197,6 @@ export const runOceanAnimations = (container: HTMLElement, config?: Partial<Ocea
       const easeFactor = 0.05; // Controls how quickly particles follow
       const newTranslateX = currentTranslateX + deltaX * easeFactor;
       const newTranslateY = currentTranslateY + deltaY * easeFactor;
-
-      // Limit movement to prevent particles from going off-screen excessively
-       const containerRect = container.getBoundingClientRect();
-       const maxTranslateX = containerRect.width / 2;
-       const maxTranslateY = containerRect.height / 2;
-
-       const finalTranslateX = Math.max(Math.min(newTranslateX, maxTranslateX), -maxTranslateX);
-       const finalTranslateY = Math.max(Math.min(newTranslateY, maxTranslateY), -maxTranslateY);
 
       particle.style.transform = `translate(${newTranslateX}px, ${newTranslateY}px)`;
     });

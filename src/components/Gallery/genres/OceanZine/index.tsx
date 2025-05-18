@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
 import BackButton from '../../../ui/BackButton';
 import styles from './Styles.module.css';
-import { runOceanAnimations, OceanAnimationConfig, fadeInFromDepth, bubbleRise, floatVariant, driftVariant, glowPulse } from './Animations';
+import { runOceanAnimations, OceanAnimationConfig, fadeInFromDepth, bubbleRise, driftVariant, glowPulse } from './Animations';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import OceanFooter from './OceanFooter';
 
@@ -11,7 +10,6 @@ interface OceanZineProps {
 }
 
 const OceanZine: React.FC<OceanZineProps> = ({ onNavigate }) => {
-  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const [showDetailModal, setShowDetailModal] = useState(false);
@@ -188,7 +186,7 @@ const OceanZine: React.FC<OceanZineProps> = ({ onNavigate }) => {
       </div>
 
       {/* Main content sections */}
-      {slides.map((slide, index) => (
+      {slides.map((slide) => (
         <motion.section
           key={slide.id}
           id={slide.id}

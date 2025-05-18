@@ -1,16 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Nature Zine Specific Styles */
 .container {
-  @apply min-h-screen bg-nature-gradient overflow-hidden relative cursor-default;
+  min-height: 100vh;
+  background: var(--nature-gradient);
+  overflow: hidden;
+  position: relative;
+  cursor: default;
   will-change: transform;
 }
 
 .natureZineContainer {
-  @apply relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden bg-nature-darker border border-nature-primary/30 min-h-[70vh];
-  box-shadow: theme('boxShadow.nature');
+  position: relative;
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--nature-darker);
+  border: 1px solid rgba(160, 230, 193, 0.3);
+  min-height: 70vh;
+  box-shadow: var(--nature-shadow);
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -196,36 +204,48 @@
 /* Animation Classes */
 .animateButterfly {
   animation: butterfly 15s ease-in-out infinite;
+  -webkit-animation: butterfly 15s ease-in-out infinite;
 }
 
 .animateFadeIn {
   animation: fadeIn 1s ease-out forwards;
+  -webkit-animation: fadeIn 1s ease-out forwards;
 }
 
 .animatePulse {
   animation: pulse 3s ease-in-out infinite;
+  -webkit-animation: pulse 3s ease-in-out infinite;
 }
 
 .animateFloating {
   animation: floating 6s ease-in-out infinite;
+  -webkit-animation: floating 6s ease-in-out infinite;
 }
 
 /* Nature Zine Specific Styles */
 .natureTitle {
-  @apply font-['Crimson_Pro'] tracking-[0.03em];
+  font-family: 'Crimson Pro', serif;
+  letter-spacing: 0.03em;
 }
 
 .natureText {
-  @apply font-['Inter'] leading-[1.8];
+  font-family: 'Inter', sans-serif;
+  line-height: 1.8;
 }
 
 .textHighlight {
-  @apply relative text-[#bff0d4] italic;
+  position: relative;
+  color: #bff0d4;
+  font-style: italic;
 }
 
 .textHighlight::after {
   content: '';
-  @apply absolute bottom-[-2px] left-0 w-full h-[2px];
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
   background: linear-gradient(90deg, rgba(160, 230, 193, 0), rgba(160, 230, 193, 0.8) 50%, rgba(160, 230, 193, 0));
 }
 
@@ -236,18 +256,23 @@
     rgba(160, 230, 193, 0));
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
+  -webkit-animation: shimmer 2s infinite;
 }
 
 .hiddenSection {
-  @apply opacity-0 translate-y-[30px] transition-all duration-1000 ease-out;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1000ms ease-out;
 }
 
 .revealSection {
-  @apply opacity-100 translate-y-0;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sectionDivider {
-  @apply h-[2px] my-8;
+  height: 2px;
+  margin: 2rem 0;
   background: linear-gradient(90deg, 
     rgba(160, 230, 193, 0), 
     rgba(160, 230, 193, 0.6) 50%, 
@@ -255,100 +280,158 @@
 }
 
 .quoteBlock {
-  @apply relative p-6 italic;
+  position: relative;
+  padding: 1.5rem;
+  font-style: italic;
 }
 
 .quoteBlock::before,
 .quoteBlock::after {
   content: '"';
-  @apply font-['Crimson_Pro'] text-[3rem] absolute opacity-30 text-[#a0e6c1];
+  font-family: 'Crimson Pro', serif;
+  font-size: 3rem;
+  position: absolute;
+  opacity: 0.3;
+  color: #a0e6c1;
 }
 
 .quoteBlock::before {
-  @apply -top-[10px] -left-[10px];
+  top: -10px;
+  left: -10px;
 }
 
 .quoteBlock::after {
-  @apply -bottom-[30px] -right-[10px];
+  bottom: -30px;
+  right: -10px;
 }
 
 .imageCaption {
-  @apply text-[0.85rem] text-center py-2 italic;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-style: italic;
 }
 
 .audioControl {
-  @apply fixed bottom-5 right-5 z-50 bg-[#0a2719]/70 backdrop-blur-[5px] border border-[#a0e6c1]/30 p-2 rounded-full cursor-pointer transition-all duration-300;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 50;
+  background: rgba(10, 39, 25, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(160, 230, 193, 0.3);
+  padding: 0.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 300ms;
 }
 
 .audioControl:hover {
-  @apply scale-110 bg-[#0a2719]/90;
+  transform: scale(1.1);
+  background: rgba(10, 39, 25, 0.9);
 }
 
 .pastelGlow {
-  @apply absolute rounded-full blur-[40px] -z-10 opacity-30;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+  z-index: -10;
+  opacity: 0.3;
 }
 
 .forestCard {
-  @apply transition-all duration-300;
+  transition: all 300ms;
 }
 
 .forestCard:hover {
-  @apply -translate-y-[5px];
+  transform: translateY(-5px);
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
 }
 
 /* Floating Elements */
 .leafElement {
-  @apply absolute pointer-events-none z-10;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .butterflyElement {
-  @apply absolute pointer-events-none z-10;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .sparkleElement {
-  @apply absolute pointer-events-none z-10 rounded-full;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 9999px;
   background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
 }
 
 /* Ambient Background */
 .ambientBg {
-  @apply absolute inset-0 bg-cover bg-center opacity-10;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
   background-attachment: fixed;
 }
 
 /* Content Sections */
 .contentSection {
-  @apply relative max-w-4xl mx-auto;
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto;
 }
 
 .heroSection {
-  @apply relative h-screen max-h-[800px] -mt-8 md:-mt-16 md:-mx-12 rounded-b-3xl overflow-hidden;
+  position: relative;
+  height: 100vh;
+  max-height: 800px;
+  margin-top: -2rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  overflow: hidden;
 }
 
 .introSection {
-  @apply relative max-w-4xl mx-auto;
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto;
 }
 
 .seasonCard {
-  @apply bg-gradient-to-br from-[#0a2719]/60 to-[#143a27]/60 backdrop-blur-sm p-6 rounded-2xl border border-[#a0e6c1]/10 relative overflow-hidden h-full;
+  background: linear-gradient(to bottom right, rgba(10, 39, 25, 0.6), rgba(20, 58, 39, 0.6));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(160, 230, 193, 0.1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
 .reflectionSection {
-  @apply relative max-w-4xl mx-auto mb-16;
+  position: relative;
+  max-width: 56rem;
+  margin: 0 auto 4rem;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
   .heroSection {
-    @apply h-[60vh];
+    height: 60vh;
   }
   
   .quoteBlock {
-    @apply p-4;
+    padding: 1rem;
   }
   
   .natureZineContainer {
-    @apply min-h-[80vh];
+    min-height: 80vh;
   }
 }

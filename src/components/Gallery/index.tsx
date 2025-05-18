@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { genreData, Genre } from '../../utils/genreData'
+import { genreData } from '../../utils/genreData'
 import Button from '../ui/Button'
 import BackButton from '../ui/BackButton'
 import { useGenre } from '../../contexts/GenreContext'

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, FC, useLayoutEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import BackButton from '../../../ui/BackButton';
 import styles from './Styles.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -24,7 +23,6 @@ interface SubSectionProps {
 }
 
 const FantasyZine: FC<FantasyZineProps> = ({ onNavigate }) => {
-  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [orbs, setOrbs] = useState<any[]>([]);
