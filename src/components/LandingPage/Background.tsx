@@ -37,17 +37,21 @@ const Background = () => {
 
     // Star class for twinkling background
     class Star {
-      x: number
-      y: number
-      radius: number
-      color: string
-      twinkleSpeed: number
-      opacity: number
-      twinkleDirection: number
+      x!: number
+      y!: number
+      radius!: number
+      color!: string
+      twinkleSpeed!: number
+      opacity!: number
+      twinkleDirection!: number
+      width!: number   // Add these
+  height!: number  // Add these
       
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+  constructor(width: number, height: number) {
+    this.width = width    // Store dimensions
+    this.height = height
+    this.x = Math.random() * width    // Add this
+    this.y = Math.random() * height
         this.radius = Math.random() * 1.5 + 0.5
         this.color = this.getStarColor()
         this.twinkleSpeed = Math.random() * 0.03 + 0.01
@@ -108,19 +112,23 @@ const Background = () => {
 
     // Magic dust floating in the background
     class MagicDust {
-      x: number
-      y: number
-      size: number
-      color: string
-      vx: number
-      vy: number
-      angle: number
-      va: number
-      opacity: number
+      x!: number
+      y!: number
+      size!: number
+      color!: string
+      vx!: number
+      vy!: number
+      angle!: number
+      va!: number
+      opacity!: number
+      width!: number  // Add these
+      height!: number
       
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+      constructor(width: number, height: number) {
+        this.width = width   // Store dimensions
+        this.height = height 
+        this.x = Math.random() * width
+        this.y = Math.random() * height
         this.size = Math.random() * 100 + 50
         this.color = this.getMagicColor()
         this.vx = Math.random() * 0.3 - 0.15
@@ -146,12 +154,12 @@ const Background = () => {
         this.y += this.vy
         this.angle += this.va
         
-        // Gentle wrap around edges
-        if (this.x < -this.size) this.x = canvas.width + this.size
-        if (this.x > canvas.width + this.size) this.x = -this.size
-        if (this.y < -this.size) this.y = canvas.height + this.size
-        if (this.y > canvas.height + this.size) this.y = -this.size
-      }
+        // Use stored dimensions instead of canvas
+    if (this.x < -this.size) this.x = this.width + this.size
+    if (this.x > this.width + this.size) this.x = -this.size
+    if (this.y < -this.size) this.y = this.height + this.size
+    if (this.y > this.height + this.size) this.y = -this.size
+  }
       
       draw() {
         if (!ctx) return
@@ -181,13 +189,13 @@ const Background = () => {
 
     // Create stars
     for (let i = 0; i < 150; i++) {
-      stars.push(new Star())
+      stars.push(new Star(canvas.width, canvas.height))
     }
 
     // Create magic dust
-    for (let i = 0; i < 8; i++) {
-      magicDust.push(new MagicDust())
-    }
+for (let i = 0; i < 8; i++) {
+  magicDust.push(new MagicDust(canvas.width, canvas.height))
+}
 
     // Draw castle silhouette
     const drawCastleSilhouette = () => {

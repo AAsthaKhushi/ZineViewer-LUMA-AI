@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useAnimation } from 'framer-motion'
-import { Sparkles, Star, Wand } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Background from './Background'
 import SparkleTrail from './SparkleTrail'
 import Button from '../ui/Button'
@@ -9,9 +8,7 @@ const LandingPage = ({ onExplore = () => {} }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
   const [isReady, setIsReady] = useState(false)
-  // Using the imported SparkleTrail component instead of internal state for sparkle trails
-  const controls = useAnimation()
-  const audioRef = useRef(null)
+  
   
   // Handle intro animation sequence - FASTER TIMING
   useEffect(() => {
@@ -33,7 +30,7 @@ const LandingPage = ({ onExplore = () => {} }) => {
   
   // Mouse movement handler
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
     
@@ -78,7 +75,7 @@ const LandingPage = ({ onExplore = () => {} }) => {
   
   const sparkleVariants = {
     hidden: { scale: 0, opacity: 0 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       scale: 1,
       opacity: 1,
       transition: {
@@ -518,7 +515,7 @@ const LandingPage = ({ onExplore = () => {} }) => {
         <div className="scroll-text">Scroll to explore</div>
       </motion.div>
       
-      <style jsx="true">{`
+      <style>{`
         /* Basic layout */
         .landing-container {
           position: relative;
