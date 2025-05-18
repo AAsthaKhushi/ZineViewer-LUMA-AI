@@ -1,0 +1,659 @@
+/* Enhanced Styles for OceanZine Component */
+
+.oceanZineContainer {
+    /* Container fundamentals */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    color: #f0f8ff;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, 
+      #0072B5 0%, /* Surface water blue */
+      #005F8C 20%, /* Coral reef blue */
+      #004472 40%, /* Twilight zone blue */
+      #001A33 70%, /* Abyss blue */
+      #000911 100% /* Deep ocean floor - almost black */
+    );
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    max-width: 100%;
+  }
+  
+  /* Section Fundamentals */
+  .zineSection {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: background-color 0.5s ease;
+  }
+  
+  /* Back Button */
+  .backButton {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .backButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Content Structure */
+  .slideContent {
+    max-width: 800px;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    animation: fadeIn 1s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .slideContent:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+  }
+  
+  .slideTitle {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #ffffff, #a9d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .slideSubtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    color: #a9d4ff;
+    opacity: 0.9;
+  }
+  
+  .slideText {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #e6f2ff;
+  }
+  
+  /* Fun Fact Bubble */
+  .funFactBubble {
+    background: linear-gradient(135deg, rgba(2, 92, 151, 0.7), rgba(0, 44, 72, 0.7));
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(135, 206, 250, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .funFactIcon {
+    font-size: 2rem;
+    animation: bobble 3s ease-in-out infinite;
+  }
+  
+  .funFactText {
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  
+  /* Section-specific styles */
+  
+  /* 1. Surface Section */
+  .surfaceSection {
+    background: radial-gradient(ellipse at top, rgba(0, 180, 216, 0.2), transparent),
+                radial-gradient(ellipse at bottom, rgba(0, 97, 163, 0.2), transparent);
+  }
+  
+  .surfaceEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .lightRay {
+    position: absolute;
+    top: -10%;
+    left: 20%;
+    width: 60%;
+    height: 120%;
+    background: linear-gradient(180deg, 
+                  rgba(255, 255, 255, 0.4) 0%, 
+                  rgba(173, 216, 230, 0.2) 40%, 
+                  rgba(0, 114, 181, 0.05) 80%);
+    transform: rotate(20deg) translateY(-5%);
+    filter: blur(8px);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+  }
+  
+  .lightRay2 {
+    left: 55%;
+    width: 40%;
+    transform: rotate(-15deg) translateY(-10%);
+    opacity: 0.3;
+  }
+  
+  .surfaceFish {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 50px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 30'%3E%3Cpath d='M10,15 Q20,5 35,15 Q20,25 10,15 Z' fill='rgba(173, 216, 230, 0.8)'/%3E%3Ccircle cx='15' cy='13' r='2' fill='black'/%3E%3Cpath d='M35,15 L45,8 L45,22 Z' fill='rgba(173, 216, 230, 0.8)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* 2. Coral Section */
+  .coralSection {
+    background: radial-gradient(ellipse at top, rgba(0, 95, 140, 0.2), transparent),
+                radial-gradient(ellipse at bottom, rgba(0, 68, 114, 0.2), transparent);
+  }
+  
+  .coralEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .floatingJellyfish {
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    top: 30%;
+    right: 15%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 120'%3E%3Cpath d='M40,0 Q60,20 60,40 Q60,60 40,70 Q20,60 20,40 Q20,20 40,0 Z' fill='rgba(255, 120, 255, 0.4)'/%3E%3Cpath d='M30,60 Q30,90 25,120 M40,60 Q40,100 40,120 M50,60 Q50,90 55,120' stroke='rgba(255, 150, 255, 0.4)' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 8px rgba(255, 150, 255, 0.5));
+    z-index: 4;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .jellyfish2 {
+    width: 60px;
+    height: 90px;
+    top: 20%;
+    right: 30%;
+    filter: drop-shadow(0 0 8px rgba(150, 255, 255, 0.5));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 90'%3E%3Cpath d='M30,0 Q45,15 45,30 Q45,45 30,52 Q15,45 15,30 Q15,15 30,0 Z' fill='rgba(150, 210, 255, 0.4)'/%3E%3Cpath d='M22,45 Q22,67 19,90 M30,45 Q30,75 30,90 M38,45 Q38,67 41,90' stroke='rgba(180, 220, 255, 0.4)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  }
+  
+  .coralFormation {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    bottom: 0;
+    left: 10%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Cpath d='M20,150 L40,80 L60,150 M80,150 L100,50 L120,150 M140,150 L160,70 L180,150' stroke='rgba(255, 150, 180, 0.7)' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M30,150 L45,100 L60,150 M90,150 L110,70 L130,150 M150,150 L170,85 L190,150' stroke='rgba(255, 200, 150, 0.6)' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 10px rgba(255, 100, 150, 0.3));
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* 3. Twilight Section */
+  .twilightSection {
+    background: radial-gradient(ellipse at top, rgba(0, 68, 114, 0.2), transparent),
+                radial-gradient(ellipse at bottom, rgba(0, 26, 51, 0.2), transparent);
+  }
+  
+  .twilightEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .glowingOrb {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 40%;
+    left: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100, 200, 255, 0.8) 0%, rgba(70, 140, 255, 0.4) 50%, rgba(50, 100, 255, 0) 100%);
+    filter: blur(4px) drop-shadow(0 0 10px rgba(100, 200, 255, 0.7));
+    z-index: 3;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  .glowingOrb2 {
+    width: 25px;
+    height: 25px;
+    top: 35%;
+    left: 25%;
+    background: radial-gradient(circle, rgba(150, 255, 200, 0.8) 0%, rgba(100, 200, 150, 0.4) 50%, rgba(50, 150, 100, 0) 100%);
+    filter: blur(3px) drop-shadow(0 0 8px rgba(150, 255, 200, 0.7));
+  }
+  
+  .mysteriousShape {
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    bottom: 20%;
+    right: 15%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M60,0 Q90,20 110,40 Q90,60 60,80 Q30,60 10,40 Q30,20 60,0 Z' fill='rgba(50, 100, 150, 0.3)' stroke='rgba(100, 150, 200, 0.4)' stroke-width='1'/%3E%3Cellipse cx='40' cy='30' rx='8' ry='12' fill='rgba(150, 200, 255, 0.5)'/%3E%3Cellipse cx='80' cy='30' rx='8' ry='12' fill='rgba(150, 200, 255, 0.5)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 15px rgba(100, 150, 255, 0.3));
+    opacity: 0.8;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* 4. Abyss Section */
+  .abyssSection {
+    background: radial-gradient(ellipse at top, rgba(0, 26, 51, 0.2), transparent),
+                radial-gradient(ellipse at bottom, rgba(0, 9, 17, 0.4), transparent);
+  }
+  
+  .abyssEffects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .abyssParticleEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at center, transparent 99%, rgba(255, 255, 255, 0.2) 100%);
+    background-size: 5px 5px;
+    z-index: 1;
+    opacity: 0.5;
+  }
+  
+  .abyssCreature {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    top: 40%;
+    left: 25%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath d='M30,30 Q50,10 80,30 Q50,50 30,30 Z' fill='rgba(50, 50, 70, 0.6)' stroke='rgba(70, 70, 100, 0.4)' stroke-width='1'/%3E%3Cpath d='M80,30 L90,20 L90,40 Z' fill='rgba(50, 50, 70, 0.6)' stroke='rgba(70, 70, 100, 0.4)' stroke-width='1'/%3E%3Ccircle cx='40' cy='25' r='3' fill='rgba(200, 240, 255, 0.9)'/%3E%3Cpath d='M20,30 Q15,20 10,30' stroke='rgba(200, 240, 255, 0.7)' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 10px rgba(150, 200, 255, 0.3));
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  .hydrothermalVent {
+    position: absolute;
+    width: 80px;
+    height: 120px;
+    bottom: 0;
+    right: 20%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 120'%3E%3Cpath d='M30,120 L20,60 L60,60 L50,120 Z' fill='rgba(70, 70, 80, 0.8)'/%3E%3Cpath d='M35,60 Q25,30 40,10 Q55,30 45,60' fill='rgba(200, 100, 50, 0.4)' stroke='rgba(250, 150, 100, 0.3)' stroke-width='2'/%3E%3Cpath d='M40,10 L40,0' stroke='rgba(250, 150, 100, 0.5)' stroke-width='3'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 15px rgba(200, 100, 50, 0.3));
+    z-index: 2;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  
+  /* Interactive Elements */
+  .interactiveElementsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .interactiveButton {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    color: #e6f2ff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .interactiveButton:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Footer */
+  .footer {
+    min-height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: radial-gradient(ellipse at top, rgba(0, 9, 17, 0.6), rgba(0, 5, 10, 0.8));
+    position: relative;
+    z-index: 10;
+  }
+  
+  .footer p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #a9d4ff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .explorerButton {
+    background: linear-gradient(135deg, rgba(0, 80, 150, 0.6), rgba(0, 40, 100, 0.6));
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    border-radius: 30px;
+    padding: 0.8rem 1.8rem;
+    color: #e6f2ff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .explorerButton:hover {
+    background: linear-gradient(135deg, rgba(0, 100, 180, 0.7), rgba(0, 50, 120, 0.7));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Navigation Elements */
+  .navigationDots {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+  }
+  
+  .navDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .navDot:hover {
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .activeNavDot {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .navDotTooltip {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .navDot:hover .navDotTooltip {
+    opacity: 1;
+  }
+  
+  /* Modal */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+  }
+  
+  .modalContent {
+    background: linear-gradient(135deg, rgba(0, 60, 120, 0.9), rgba(0, 20, 50, 0.9));
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 90%;
+    width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .modalContent h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #a9d4ff;
+  }
+  
+  .modalContent p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #e6f2ff;
+  }
+  
+  .closeButton {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    color: #e6f2ff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+    margin-left: auto;
+  }
+  
+  .closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Progress Bar */
+  .progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #a9d4ff, #00a2ff);
+    transform-origin: 0%;
+    z-index: 1000;
+  }
+  
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes bobble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .slideTitle {
+      font-size: 2.2rem;
+    }
+    
+    .slideSubtitle {
+      font-size: 1.2rem;
+    }
+    
+    .slideContent {
+      padding: 1.5rem;
+      width: 95%;
+    }
+  
+    .navigationDots {
+      right: 1rem;
+    }
+    
+    .interactiveElementsContainer {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .interactiveButton {
+      width: 100%;
+    }
+    
+    .backButton {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .slideTitle {
+      font-size: 1.8rem;
+    }
+    
+    .slideSubtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .slideText {
+      font-size: 0.9rem;
+    }
+    
+    .funFactBubble {
+      padding: 1rem;
+    }
+    
+    .funFactIcon {
+      font-size: 1.5rem;
+    }
+    
+    .funFactText {
+      font-size: 0.9rem;
+    }
+    
+    .zineSection {
+      padding: 3rem 1rem;
+    }
+    
+    .modalContent {
+      padding: 1.5rem;
+    }
+    
+    .modalContent h3 {
+      font-size: 1.5rem;
+    }
+    
+    .modalContent p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .slideContent {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .funFactBubble {
+      background: linear-gradient(135deg, rgba(2, 62, 101, 0.7), rgba(0, 34, 52, 0.7));
+    }
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .oceanZineContainer {
+      scroll-behavior: auto;
+    }
+    
+    .funFactIcon,
+    .surfaceFish,
+    .lightRay,
+    .lightRay2,
+    .floatingJellyfish,
+    .glowingOrb,
+    .mysteriousShape,
+    .abyssCreature,
+    .hydrothermalVent {
+      animation: none !important;
+      transition: none !important;
+    }
+  }

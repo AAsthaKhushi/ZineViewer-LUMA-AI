@@ -1,0 +1,41 @@
+/* Theme variables for different zine genres */
+
+.theme-nature {
+  --theme-primary: #4caf50;
+  --theme-secondary: #8bc34a;
+  --theme-accent: #ffc107;
+  --theme-bg: #f1f8e9;
+  --theme-text: #33691e;
+}
+
+.theme-cosmos {
+  --theme-primary: #3f51b5;
+  --theme-secondary: #7986cb;
+  --theme-accent: #ff4081;
+  --theme-bg: #e8eaf6;
+  --theme-text: #1a237e;
+}
+
+.theme-ocean {
+  --theme-primary: #03a9f4;
+  --theme-secondary: #4fc3f7;
+  --theme-accent: #ff9800;
+  --theme-bg: #e1f5fe;
+  --theme-text: #01579b;
+}
+
+.theme-fantasy {
+  --theme-primary: #9c27b0;
+  --theme-secondary: #ba68c8;
+  --theme-accent: #ffd600;
+  --theme-bg: #f3e5f5;
+  --theme-text: #4a148c;
+}
+
+.theme-horror {
+  --theme-primary: #f44336;
+  --theme-secondary: #e57373;
+  --theme-accent: #212121;
+  --theme-bg: #ffebee;
+  --theme-text: #b71c1c;
+}
