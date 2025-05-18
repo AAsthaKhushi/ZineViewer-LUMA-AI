@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { genreData } from '../../utils/genreData'
+import { genreData, Genre } from '../../utils/genreData'
 import Button from '../ui/Button'
 import BackButton from '../ui/BackButton'
 import { useGenre } from '../../contexts/GenreContext'
@@ -44,7 +44,7 @@ const Gallery = () => {
 
   // Mouse parallax effect
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: globalThis.MouseEvent) => {
       const { clientX, clientY } = e
       const x = (clientX / window.innerWidth) - 0.5
       const y = (clientY / window.innerHeight) - 0.5
@@ -142,6 +142,11 @@ const Gallery = () => {
         <div className="absolute inset-0 overflow-hidden">
           <motion.div 
             className="absolute w-64 h-64 rounded-full blur-3xl"
+            style={{ 
+              backgroundColor: hoveredCard ? 
+                `${genreData.find(g => g.id === hoveredCard)?.color}30` || 'rgba(147, 51, 234, 0.2)' : 
+                'rgba(147, 51, 234, 0.2)'
+            }}
             animate={{ 
               x: [0, 100, 50, 0], 
               y: [0, 50, 100, 0],
@@ -152,13 +157,7 @@ const Gallery = () => {
               repeat: Infinity, 
               repeatType: "mirror"
             }}
-            style={{ 
-              top: '10%', 
-              left: '5%',
-              backgroundColor: hoveredCard ? 
-                `${genreData.find(g => g.id === hoveredCard)?.color}30` || 'rgba(147, 51, 234, 0.2)' : 
-                'rgba(147, 51, 234, 0.2)'
-            }}
+            
           />
           <motion.div 
             className="absolute w-96 h-96 rounded-full blur-3xl"
@@ -294,6 +293,16 @@ const Gallery = () => {
                 {/* Floating glow dots */}
                 {hoveredCard === genre.id && (
                   <>
+                    <motion.div
+                      className="absolute w-2 h-2 rounded-full blur-sm z-20"
+                      style={{ backgroundColor: `${genre.color}B3` }}
+                      animate={{ 
+                        x: [0, 10, 0], 
+                        y: [0, -10, 0],
+                        opacity: [0.7, 1, 0.7]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    />
                     <motion.div
                       className="absolute w-2 h-2 rounded-full blur-sm z-20"
                       animate={{ 

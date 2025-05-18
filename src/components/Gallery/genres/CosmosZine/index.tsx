@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, FC } from 'react';
 import { Moon, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
 import CosmosFooter from './CosmosFooter';
 
 interface CosmosZineProps {
@@ -9,7 +8,6 @@ interface CosmosZineProps {
 
 const CosmosZine: FC<CosmosZineProps> = ({ onBack }) => {
   const [activeSlide, setActiveSlide] = useState<number>(1);
-  const [showStars, setShowStars] = useState<boolean>(false);
   const [showConstellationHuman, setShowConstellationHuman] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const slidesRef = useRef<HTMLDivElement | null>(null);
@@ -17,9 +15,9 @@ const CosmosZine: FC<CosmosZineProps> = ({ onBack }) => {
   // Initialize cosmic effects
   useEffect(() => {
     // Show stars with slight delay for better effect
-    const timer = setTimeout(() => {
-      setShowStars(true);
-    }, 500);
+    // const timer = setTimeout(() => {
+    //   setShowStars(true);
+    // }, 500);
     
     // Create random stars
     const createStars = (): void => {
@@ -41,7 +39,7 @@ const CosmosZine: FC<CosmosZineProps> = ({ onBack }) => {
     
     createStars();
     
-    return () => clearTimeout(timer);
+    //return () => clearTimeout(timer);
   }, []);
   
   // Cursor effect
