@@ -162,6 +162,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- Images from Unsplash
+- Images from Unsplash and Pinterest
 - Fonts from Google Fonts
 - Icons and additional resources from various open-source projects
