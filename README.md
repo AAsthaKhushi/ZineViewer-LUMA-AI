@@ -1,7 +1,4 @@
 # LUMA - Interactive Digital Zine Gallery
-
-[Previous sections remain the same...]
-
 ## �� How to Use
 
 ### Prerequisites
